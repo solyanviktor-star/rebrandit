@@ -1,6 +1,6 @@
 ---
 name: rebrandit
-description: Rebrand any image/meme with a brand's logo, name, or mascot — natural integration, not a pasted watermark. Ships configured for Sentient; swap brands via a brand pack. Triggers — rebrand, rebrand this, rebrand meme, add logo, integrate logo, brand this image, sentient rebrand, ребренд, ребренд мем, добавь логотип, добавь маскота.
+description: Rebrand any image/meme with a brand's logo, name, or mascot — natural integration, not a pasted watermark. Ships configured for Sentient; swap brands via a brand pack. Triggers — rebrand, rebrand this, rebrand meme, add logo, integrate logo, brand this image, sentient rebrand.
 ---
 
 # rebrandit
