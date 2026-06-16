@@ -10,6 +10,16 @@ always part of the artwork.
 It ships configured for **[Sentient](https://sentient.xyz)** out of the box, but the engine is
 brand-agnostic — point it at your own logo and name and it becomes *your* rebrand agent.
 
+## See it in action
+
+A generic meme rebranded for **CineMeta**: the flaming meteor becomes a film reel, the sword a
+clapperboard, plus a camera, Oscar statuettes and a glowing "CineMeta" sign — while the character
+and composition stay intact.
+
+| Before | After |
+|:---:|:---:|
+| <img src="examples/input-10.jpg" width="340" alt="original meme"> | <img src="examples/output-10.png" width="340" alt="rebranded for CineMeta"> |
+
 ---
 
 ## Why it's portable
