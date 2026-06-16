@@ -1,0 +1,29 @@
+# Secrets — NEVER commit these
+.env
+.env.*
+*.key
+.fastgen.key
+*.pem
+wallet.json
+*private*key*
+
+# Generated output
+/output/
+*-rebrand-*.png
+*-rebrand-*.jpg
+
+# Temp
+.tmp/
+tmp/
+*.tmp
+
+# Node (if any tooling is added)
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.idea/
+.vscode/

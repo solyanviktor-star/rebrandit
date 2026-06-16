@@ -1,0 +1,43 @@
+# brand.yaml — Sentient (the default brand pack shipped with rebrandit)
+#
+# This file is the ONLY thing rebrandit reads to know your brand. Everything in
+# AGENT.md is brand-agnostic and pulls from here. To make your own brand, copy
+# brands/template/ to brands/<your-brand>/ and edit this file. See docs/create-your-brand.md.
+
+name: Sentient
+
+# Text variants the agent can stamp into images (TEXT_REPLACE mode).
+# Pick by scene tone. Keep `default`; the others are optional.
+text_variants:
+  default: Sentient        # neutral / generic scenes — the safe choice
+  technical: SentientAGI   # tech / dev / AI / product-name / handle contexts (matches @SentientAGI)
+  ticker: $SENT            # crypto / finance / ticker / price / dollar-amount contexts
+
+# Primary brand color (hex). Used to describe accent placement and logo color in prompts.
+color: "#F26B8F"
+
+# Logo asset (REQUIRED). Path is relative to this brand folder.
+logo:
+  file: assets/logo.png
+  description: >-
+    a pink square (#F26B8F) with a white block/pixel "S" pattern — the official Sentient mark
+
+# Mascot (OPTIONAL).
+# Delete this entire block if your brand has no mascot. When absent, the agent
+# automatically disables the MASCOT_INSERT, CHARACTER_REPLACE and FULL_BRAND modes
+# and only uses LOGO_ADD + TEXT_REPLACE.
+mascot:
+  name: Dobby
+  file: assets/mascot.png
+  file_small: assets/mascot-tiny.png   # lighter version for reference payloads (faster, smaller upload)
+  description: >-
+    a kawaii cartoon dog with cream/beige fur, big black eyes, pink tongue out,
+    wearing a pink circular medallion with a white block pattern. Flat cartoon / kawaii art style.
+
+# Long-form semantic brand context (OPTIONAL but recommended).
+# Lets the agent judge which scenes are on-brand vs off-brand and pick the right
+# text variant. Path is relative to this brand folder. Delete the line if unused.
+context_file: context.md
+
+# Filename prefix for saved results, e.g. sentient-rebrand-<name>-<timestamp>.png
+output_prefix: sentient-rebrand

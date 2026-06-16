@@ -1,0 +1,48 @@
+# brand.yaml — TEMPLATE
+#
+# Copy this whole folder to brands/<your-brand>/ and fill it in. This is the ONLY
+# file the agent reads to learn your brand; AGENT.md stays untouched. Full walkthrough:
+# docs/create-your-brand.md
+#
+# Then run rebrandit with BRAND=<your-brand> (see README). The default is "sentient".
+
+# Your brand's display name. Used in prompts and to name the brand.
+name: YOUR_BRAND_NAME
+
+# Text the agent stamps over existing text in memes/images (TEXT_REPLACE mode).
+# `default` is required. `technical` and `ticker` are optional — delete the lines
+# you don't need. If you only have one name, just set `default`.
+text_variants:
+  default: YOUR_BRAND_NAME       # neutral / generic scenes
+  # technical: YourBrandHandle   # tech / dev / product-name contexts (optional)
+  # ticker: $TICKER              # crypto / finance contexts, keep the $ (optional)
+
+# Primary brand color as a hex string. Used to describe logo color / accent placement.
+color: "#000000"
+
+# Logo asset (REQUIRED). Drop your file in this folder's assets/ and point to it here.
+logo:
+  file: assets/logo.png
+  description: >-
+    DESCRIBE YOUR LOGO IN WORDS — shape, colors, any letters/symbols.
+    The image model uses this text plus the reference image. Be concrete.
+    e.g. "a circular teal badge with a white origami fox and the letters FX below it"
+
+# Mascot (OPTIONAL).
+# If your brand has NO mascot, delete this entire `mascot:` block. The agent will
+# then only use the LOGO_ADD and TEXT_REPLACE modes (mascot-based modes auto-disable).
+# mascot:
+#   name: YOUR_MASCOT_NAME
+#   file: assets/mascot.png
+#   file_small: assets/mascot-tiny.png   # optional lighter version for faster uploads
+#   description: >-
+#     DESCRIBE YOUR MASCOT — species/shape, colors, art style, distinctive features.
+#     e.g. "a chunky terracotta-orange robot with round eyes and a friendly posture, flat vector style"
+
+# Long-form brand context (OPTIONAL). A markdown file in this folder explaining what
+# your brand is, on-brand vs off-brand themes, and when to use each text variant.
+# Helps the agent make smarter decisions. Delete this line if you don't want one.
+# context_file: context.md
+
+# Prefix for saved output filenames, e.g. yourbrand-rebrand-<name>-<timestamp>.png
+output_prefix: yourbrand-rebrand
