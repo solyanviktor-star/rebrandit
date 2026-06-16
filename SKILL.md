@@ -26,7 +26,7 @@ The **repo root is the skill** — `SKILL.md`, `AGENT.md`, `brands/`, and `docs/
 together. Clone (or symlink) the repo so its root lands at `~/.claude/skills/rebrandit/`:
 
 ```bash
-git clone https://github.com/<you>/rebrandit.git ~/.claude/skills/rebrandit
+git clone https://github.com/solyanviktor-star/rebrandit.git ~/.claude/skills/rebrandit
 # or, if you already cloned it elsewhere, symlink it:
 #   ln -s /path/to/rebrandit ~/.claude/skills/rebrandit
 ```

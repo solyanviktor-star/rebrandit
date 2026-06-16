@@ -28,11 +28,11 @@ So the same agent works whether your assistant can draw images itself or needs a
 
 1. **Clone it**
    ```bash
-   git clone https://github.com/<you>/rebrandit.git && cd rebrandit
+   git clone https://github.com/solyanviktor-star/rebrandit.git && cd rebrandit
    ```
 2. **Install for your assistant:**
    - **Claude Code** → the repo root is a ready-to-install skill ([`SKILL.md`](SKILL.md)).
-     Clone it into your skills dir: `git clone <repo> ~/.claude/skills/rebrandit`.
+     Clone it into your skills dir: `git clone https://github.com/solyanviktor-star/rebrandit.git ~/.claude/skills/rebrandit`.
    - **Codex / GPT** → [`install/codex/AGENTS.md`](install/codex/AGENTS.md)
    - **ChatGPT (Custom GPT)** → [`install/chatgpt/instructions.md`](install/chatgpt/instructions.md)
 3. **Pick an image backend** — skip if your host generates images natively; otherwise see
