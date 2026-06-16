@@ -12,13 +12,20 @@ brand-agnostic — point it at your own logo and name and it becomes *your* rebr
 
 ## See it in action
 
-A generic meme rebranded for **CineMeta**: the flaming meteor becomes a film reel, the sword a
-clapperboard, plus a camera, Oscar statuettes and a glowing "CineMeta" sign — while the character
-and composition stay intact.
+**Default brand — Sentient.** A pixelated "BE KIND" poster: the Sentient logo is woven natively
+into the starfield as pixel-art (LOGO_ADD mode), with the text and scene left untouched.
 
-| Before | After |
+| Before | After — Sentient |
 |:---:|:---:|
-| <img src="examples/input-10.jpg" width="340" alt="original meme"> | <img src="examples/output-10.png" width="340" alt="rebranded for CineMeta"> |
+| <img src="examples/bekind-before.png" width="260" alt="original BE KIND poster"> | <img src="examples/bekind-after.png" width="260" alt="rebranded with the Sentient logo"> |
+
+**Your own brand — CineMeta.** A generic meme rebranded: the flaming meteor becomes a film reel,
+the sword a clapperboard, plus a camera, Oscar statuettes and a glowing "CineMeta" sign — while
+the character and composition stay intact.
+
+| Before | After — CineMeta |
+|:---:|:---:|
+| <img src="examples/input-10.jpg" width="320" alt="original meme"> | <img src="examples/output-10.png" width="320" alt="rebranded for CineMeta"> |
 
 ---
 
