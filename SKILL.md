@@ -15,7 +15,7 @@ This is the **rebrandit** skill. The full, brand-agnostic playbook is in
 3. **Read `brands/<brand>/brand.yaml`** (and its `context_file` if set) and load the values.
 4. **Image backend:** Claude Code has no native image generation, so use an external provider
    per [`docs/image-backends.md`](docs/image-backends.md). Read `IMAGE_BACKEND`
-   (`degenai` | `gemini` | `fastgen` | `openai`); if unset, ask the user once and tell them
+   (`degenai` | `gemini`); if unset, ask the user once and tell them
    which env var / key is needed. `degenai` (x402, USDC on Base, no signup) is the lowest-barrier option.
 5. Follow the §4 workflow in `AGENT.md`: get input → pick mode → build prompt + ordered refs →
    generate → `strip_ai_provenance()` → show the result.

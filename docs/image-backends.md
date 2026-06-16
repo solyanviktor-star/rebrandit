@@ -76,17 +76,6 @@ The classic free-key option.
 Use the strongest available image-capable Gemini model for text replacement; lighter/flash
 variants handle in-image typography worse.
 
-### `fastgen` — fast-gen.ai (advanced)
-
-The author's own setup. A private-style endpoint that supports multiple models and parallel
-multi-model comparison. Needs a fast-gen.ai account/key set in your environment. Most people
-should use `degenai` or `gemini` instead — `fastgen` is here for power users who already have it.
-
-### `openai` — OpenAI images API
-
-1. Set `OPENAI_API_KEY`.
-2. rebrandit calls the OpenAI image edit/generate endpoint with references.
-
 ---
 
 ## Keys & safety

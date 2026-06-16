@@ -48,8 +48,6 @@ use the first one available. Full setup for each is in [`docs/image-backends.md`
      fund a hot wallet with a few dollars of USDC and you're generating. See image-backends doc.
    - **`gemini`** — Google Gemini image model. Needs `GEMINI_API_KEY` (free key from Google
      AI Studio). The classic default.
-   - **`fastgen`** — fast-gen.ai (advanced; the author's setup). Needs a fast-gen.ai key.
-   - **`openai`** — OpenAI images API. Needs `OPENAI_API_KEY`.
 
    If none is configured, tell the user exactly which env var to set and where to get a key —
    don't guess or fail silently.
@@ -119,7 +117,7 @@ Use when the scene has one clear central character whose role/pose the mascot co
 for a brand moment (Drake pointing, Wojak, distracted-boyfriend, etc.). The mascot **becomes**
 the protagonist of the frame. The mascot keeps its own art style while the scene around it
 stays in its original style — the style mismatch is the joke. Best done on a backend strong at
-reference-driven character swaps (typically the OpenAI/GPT path). This is different from
+reference-driven character swaps (typically a GPT-style image model). This is different from
 MASCOT_INSERT (cameo beside the character) — here the mascot replaces them.
 
 ### Mode E — FULL_BRAND *(requires mascot; rare)*
@@ -340,7 +338,7 @@ is missing, skip silently — don't fail the rebrand).
 - **LOGO_ADD:** suggest 3–5 placements SPECIFIC to the scene; never lead with a corner watermark.
 - **CHARACTER_REPLACE:** the verbatim phrasing "Match the exact pose, body position, facial
   expression, emotion, and camera angle" is load-bearing — don't paraphrase it away. Works
-  cleanest on the GPT/OpenAI reference path; Flow-style models may reinterpret the scene.
+  cleanest on a GPT-style reference path; Flow-style models may reinterpret the scene.
 - **Always end with "DO NOT change …"** listing what must stay (characters, background,
   composition, lighting).
 - If a result is weak, retry with a more specific placement instruction.

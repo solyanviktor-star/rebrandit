@@ -53,8 +53,6 @@ just say it once in chat. Full guide: [`docs/image-backends.md`](docs/image-back
   [x.com/deGenAiBase/status/2055412781478776870](https://x.com/deGenAiBase/status/2055412781478776870)
   · [@deGenAiBase](https://x.com/deGenAiBase)
 - **`gemini`** — Google Gemini image model, free key from Google AI Studio (`GEMINI_API_KEY`).
-- **`fastgen`** — fast-gen.ai (advanced; the author's own setup).
-- **`openai`** — OpenAI images API (`OPENAI_API_KEY`).
 
 > 🔒 Never commit keys or wallet private keys. `.env`, `*.key`, and wallet files are git-ignored.
 
@@ -94,7 +92,7 @@ rebrandit/
 │   ├── sentient/             # default brand pack (logo, Dobby mascot, $SENT vocab, context)
 │   └── template/             # copy this to make your own brand
 ├── docs/
-│   ├── image-backends.md     # native vs degenai/x402 vs gemini vs fastgen vs openai
+│   ├── image-backends.md     # native vs degenai/x402 vs gemini
 │   └── create-your-brand.md  # step-by-step custom-brand guide
 ├── install/                  # wrappers for other hosts (codex · chatgpt)
 ├── LICENSE
@@ -134,7 +132,6 @@ rebrandit берёт мем/картинку/скриншот и **естест�
   пару долларов на хот-кошелёк — и генеришь. API можно взять прямо у автора:
   [твит @deGenAiBase](https://x.com/deGenAiBase/status/2055412781478776870).
 - **`gemini`** — Google Gemini, бесплатный ключ в AI Studio (`GEMINI_API_KEY`).
-- **`fastgen`** — fast-gen.ai (продвинуто). **`openai`** — OpenAI Images (`OPENAI_API_KEY`).
 
 **Свой бренд:** `cp -r brands/template brands/мой`, заполнить `brand.yaml`, положить логотип в
 `assets/` (маскот опционален — если его нет, режимы с маскотом просто отключаются). Гайд:
