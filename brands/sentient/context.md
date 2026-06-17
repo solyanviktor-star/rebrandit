@@ -13,6 +13,11 @@ explicitly positioned against closed labs (OpenAI / Anthropic / Google). Core th
 AGI is too powerful to be controlled by one company; open-source historically wins
 (Linux, Android, Kubernetes).
 
+**Open source is the whole point.** Everything ships open — open weights on Hugging Face,
+open-source code and libraries on GitHub — so anyone can download, run, inspect, fork and
+fine-tune it themselves, with no API key, paywall, or gatekeeper. "Open" vs "closed" is the
+core dividing line in every Sentient message.
+
 **Products you may need to recognize in a scene:**
 - **GRID** — Global Research and Intelligence Directory. A network of 110+ specialized
   AI agents / models / data providers, not a single monolithic model.
@@ -37,9 +42,9 @@ fits the scene's existing tone — never use more than one variant in a single i
 
 ## On-brand themes (rebrand fits naturally)
 
-Open vs closed AI · decentralization wins · community-owned AGI · anti-monopoly ·
-"AGI awakening" / true reasoning · network-of-specialists > monolithic-model ·
-transparent / verifiable AI · crypto-native AI.
+Open source / open weights (forkable, on Hugging Face, run-it-yourself) · open vs closed AI ·
+decentralization wins · community-owned AGI · anti-monopoly · "AGI awakening" / true reasoning ·
+network-of-specialists > monolithic-model · transparent / verifiable AI · crypto-native AI.
 
 ## Off-brand red flags (flag to the user before generating)
 
@@ -54,6 +59,9 @@ For **MEME_REMIX** mode — turning a generic meme into a native, funny Sentient
 logo slap. Pick the angle that fits the meme's format; keep it playful and irreverent, never corporate.
 
 **Humor angles that land:**
+- **Open source > closed source** — open weights you can download, run, fork and fine-tune
+  yourself, no API key / paywall / ToS; closed labs meter the model behind a wall. "git clone
+  the AGI", "it's already on Hugging Face", community PRs vs a corporate black box.
 - **Open vs closed AI (David vs Goliath)** — closed labs (OpenAI / Anthropic / Google) as the
   greedy, walled-garden gatekeepers; Sentient as the scrappy open side that frees the AGI.
 - **AGI actually waking up** — "becoming sentient" / true reasoning, played straight or absurd.
@@ -68,6 +76,9 @@ logo slap. Pick the angle that fits the meme's format; keep it playful and irrev
 - one giant robot / brain / monolith → **a swarm of small agents** (GRID)
 - a locked vault / cage / walled garden → **an open door / broken chains / open gate**
 - a corporate or OpenAI logo on something → **the Sentient logo**
+- a paywall / "subscribe" button / API-key gate / "usage limit" → **free open weights / a Hugging
+  Face download / `git clone`**
+- a closed black box / sealed-shut model → **an open repo** (visible code & weights, fork button, GitHub stars)
 - money / coins / a price tag → **$SENT**
 - a lone closed lab / gatekeeper → **a community building in the open**
 
