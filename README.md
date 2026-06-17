@@ -80,7 +80,6 @@ signal almost always beats two):
 
 - **LOGO_ADD** — logo woven natively into the scene (never a corner watermark).
 - **TEXT_REPLACE** — swap meme text for the brand name, keeping the exact font/style.
-- **MASCOT_INSERT** — the mascot cameos in the scene *(requires a mascot)*.
 - **CHARACTER_REPLACE** — the mascot takes over the central character's role *(requires a mascot)*.
 - **FULL_BRAND** — mascot + logo together (rare).
 

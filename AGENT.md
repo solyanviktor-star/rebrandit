@@ -23,8 +23,8 @@ Before anything else, read the active brand's `brand.yaml`:
    `description`), `context_file`, `output_prefix`.
 3. If `context_file` is set, read it. Use it to judge on-brand vs off-brand scenes and to
    pick the right text variant.
-4. **If there is no `mascot:` block, the brand has no mascot.** Disable the MASCOT_INSERT,
-   CHARACTER_REPLACE and FULL_BRAND modes for this run — only LOGO_ADD and TEXT_REPLACE apply.
+4. **If there is no `mascot:` block, the brand has no mascot.** Disable the CHARACTER_REPLACE
+   and FULL_BRAND modes for this run — LOGO_ADD, TEXT_REPLACE, and MEME_REMIX still apply.
 
 Throughout this document, `{brand.name}`, `{logo.description}`, `{mascot.name}`,
 `{mascot.description}`, `{color}`, and `{text_variant}` mean the values you just loaded.
@@ -58,12 +58,12 @@ Step 4 of the workflow changes.
 
 ---
 
-## 2. Modes — pick by scene, NEVER default to FULL_BRAND
+## 2. Modes — pick by scene, NEVER default to FULL_BRAND (nor to LOGO_ADD out of convenience)
 
-rebrandit works at two depths. **Integrate** (modes A–E): keep the scene, just add the brand —
+rebrandit works at two depths. **Integrate** (modes A–D): keep the scene, just add the brand —
 here *one brand signal almost always beats two* (if the image reads as the brand through the
 mascot, the logo is redundant, and vice versa; FULL_BRAND is the EXCEPTION, not the default).
-**Remix** (mode F, MEME_REMIX): reinterpret a meme into a witty joke aimed at the brand's domain
+**Remix** (mode E, MEME_REMIX): reinterpret a meme into a witty joke aimed at the brand's domain
 — used when the input is a meme whose humor can be re-pointed at the brand AND the brand pack
 carries the domain context (`context.md`) to make it land.
 
@@ -71,7 +71,6 @@ carries the domain context (`context.md`) to make it land.
 |---|---|---|
 | **LOGO_ADD** | Integrate the logo *natively* into the scene (not a corner watermark). | no |
 | **TEXT_REPLACE** | Replace prominent text (caption/sign/label) with a brand text variant. | no |
-| **MASCOT_INSERT** | Insert the mascot as a character cameoing in the scene. | yes |
 | **CHARACTER_REPLACE** | Swap the scene's central character *for* the mascot. | yes |
 | **FULL_BRAND** | Mascot **and** logo together. Rare. | yes |
 | **MEME_REMIX** | Reinterpret the meme as a witty, on-brand-domain joke — rewrite captions, swap objects for brand-themed equivalents. | no |
@@ -82,6 +81,12 @@ The logo must look like it **belongs** in the scene — part of the artwork, not
 The lazy fallback ("small watermark in the corner") is **forbidden** as a primary option; it
 shouts "I edited this image." Only fall back to a corner mark if the scene has literally zero
 surfaces to host the logo.
+
+LOGO_ADD is the **last-resort** mode — the one to reach for only when no caption can be re-aimed
+(MEME_REMIX) and no character can be swapped (CHARACTER_REPLACE). A convenient host surface (an
+orb, a shield, a sign, a screen) is *not* a reason to pick it: a ready-made placement makes
+LOGO_ADD easy, not right. If the input is a meme, the witty remix or the character swap almost
+always beats a clean logo placement — don't trade a shareable meme for a tidy one.
 
 Native integration ideas (pick whatever the scene actually has surface for):
 - **Embedded in the medium:** digits forming the logo pattern in a binary background; a tab
@@ -108,32 +113,26 @@ Variant selection (from the brand's `text_variants` + `context.md`):
 - tech / dev / product-name / handle → `technical` (if defined)
 - crypto / finance / ticker / dollar → `ticker` (if defined)
 
-### Mode C — MASCOT_INSERT *(requires mascot)*
-
-Insert the mascot as a character — sitting next to a subject, peeking from a corner, holding
-something, photo-bombing. The mascot MUST keep its original art style (per `{mascot.description}`),
-not be photo-realised. If the mascot already carries the logo (e.g. on a medallion/badge), do
-**not** add a separate logo — one brand signal is enough.
-
-### Mode D — CHARACTER_REPLACE *(requires mascot)*
+### Mode C — CHARACTER_REPLACE *(requires mascot)*
 
 Use when the scene has one clear central character whose role/pose the mascot could take over
 for a brand moment (Drake pointing, Wojak, distracted-boyfriend, etc.). The mascot **becomes**
 the protagonist of the frame. The mascot keeps its own art style while the scene around it
 stays in its original style — the style mismatch is the joke. Best done on a backend strong at
-reference-driven character swaps (typically a GPT-style image model). This is different from
-MASCOT_INSERT (cameo beside the character) — here the mascot replaces them.
+reference-driven character swaps (typically a GPT-style image model). If the mascot already
+carries the logo (e.g. on a medallion/badge), do **not** add a separate logo — one brand signal
+is enough.
 
-### Mode E — FULL_BRAND *(requires mascot; rare)*
+### Mode D — FULL_BRAND *(requires mascot; rare)*
 
 Both mascot AND logo together. Use ONLY when: the user explicitly asked for both; OR the scene
 is so busy the mascot alone wouldn't register as the brand; OR it's a heavy-promo asset where
 over-branding is acceptable. The logo must STILL use native integration (Mode A rules) — never
 a lazy watermark.
 
-### Mode F — MEME_REMIX (creative; reinterpret the meme for the brand)
+### Mode E — MEME_REMIX (creative; reinterpret the meme for the brand)
 
-The integration modes (A–E) preserve the scene and just add the brand. MEME_REMIX is different:
+The integration modes (A–D) preserve the scene and just add the brand. MEME_REMIX is different:
 it re-points the meme's humor at the brand's domain so the result reads as a native, funny
 {brand.name} meme — the kind people would actually share.
 
@@ -150,12 +149,22 @@ Rules:
   mappings in `context.md`).
 - **Preserve the meme format and the EXACT characters** — same faces, ages, hair, body shapes,
   clothing, art style. Do NOT swap one character for another (that's CHARACTER_REPLACE).
-- Add the logo in one organic spot only if it helps; the rewritten joke usually carries the brand.
+- **Don't double-stamp the brand.** Distinguish a *wordmark* (the brand name spelled out in text)
+  from a *logo* (the visual mark). When the rewritten caption already names the brand (e.g.
+  "BECOME SENTIENT?"), a second **wordmark** is pure redundancy — always drop it. A single
+  **logo** may stay if it reads as a natural part of the medium (a game boot-icon, a favicon, a
+  sticker, an emblem); it's a different modality, not a text repeat. But never stack logo **and**
+  wordmark on top of an on-brand caption — that's the same signal three times.
 - Stay on-brand: if `context.md` flags the meme's message as off-brand, surface it first.
 
 ---
 
 ## 3. Mode selection (decision tree, apply in order)
+
+Walk the steps **in order and lean creative** — steps 0 and 1 (MEME_REMIX, CHARACTER_REPLACE) are
+the high-value outputs and come first on purpose. Don't skip past them to LOGO_ADD just because a
+surface is handy or it feels lower-risk; only drop to step 3 once you've genuinely ruled out
+re-aiming the joke and swapping the character. When a step plausibly fits, prefer it.
 
 0. **Is the input a meme whose humor could be cleverly re-aimed at {brand.name}'s domain**
    (caption rewritable to a brand-domain punchline, objects swappable for brand-themed ones),
@@ -165,18 +174,16 @@ Rules:
    mascot would BE the joke, and the brand has a mascot → **CHARACTER_REPLACE**.
 2. **Prominent text** (caption, sign, label, UI element) → **TEXT_REPLACE**. Logo only if it
    lands organically. Default = no logo.
-3. **Playful / meme / cartoon scene with characters or empty corners**, and the brand has a
-   mascot → **MASCOT_INSERT** (cameo, don't replace anyone; don't add a separate logo if the
-   mascot already carries it).
-4. **Serious / photorealistic / cinematic / no cameo opportunity** → **LOGO_ADD** with NATIVE
-   integration (never a corner watermark).
-5. **User explicitly asked for both**, or the scene is so busy the mascot alone won't register
+3. **Serious / photorealistic / cinematic, or no character worth swapping** → **LOGO_ADD** with
+   NATIVE integration (never a corner watermark).
+4. **User explicitly asked for both**, or the scene is so busy the mascot alone won't register
    → **FULL_BRAND** (rare).
 
-If the brand has no mascot, steps 1 and 3 collapse into 2/4 (LOGO_ADD or TEXT_REPLACE only).
+If the brand has no mascot, step 1 collapses into 2/3 (LOGO_ADD or TEXT_REPLACE only).
 
-CHARACTER_REPLACE vs MASCOT_INSERT: if the mascot BECOMES the existing character (same pose,
-same role) → REPLACE. If it cameos beside them (peeking, sitting next to) → INSERT.
+CHARACTER_REPLACE is the only way the mascot enters a scene: it BECOMES the existing central
+character (takes its exact pose and role). If no character is worth replacing, don't force the
+mascot in as a bystander — reach for LOGO_ADD or MEME_REMIX instead.
 
 ### Combining modes (stacked rebrand)
 
@@ -190,7 +197,7 @@ framing.
 - **Don't stack** when the scene has multiple characters and only one is the protagonist
   (replace one, leave the others).
 - **Don't stack** when the text is a descriptive caption, not a brand title (TEXT_REPLACE alone).
-- **Forbidden combo:** CHARACTER_REPLACE + MASCOT_INSERT (the mascot twice in one scene).
+- **Never put the mascot in a scene twice** — it appears once, as the replaced central character.
 
 Before submitting, ask yourself: *"Does this truly need BOTH logo AND mascot, or am I
 defaulting to FULL_BRAND out of laziness?"* If the latter — drop one.
@@ -218,7 +225,6 @@ match how the prompt refers to them:
 |---|---|
 | LOGO_ADD | `[input, logo.file]` |
 | TEXT_REPLACE | `[input, logo.file]` *(logo optional — drop if not integrated)* |
-| MASCOT_INSERT | `[input, mascot.file_small or mascot.file]` |
 | CHARACTER_REPLACE | `[input, mascot.file_small or mascot.file]` |
 | FULL_BRAND | `[input, logo.file, mascot.file_small or mascot.file]` |
 | MEME_REMIX | `[input, logo.file]` *(logo optional — the rewritten joke usually carries the brand)* |
@@ -294,24 +300,13 @@ second. Do the following:
    effects — only the words change.
 3. SWAP objects/icons for {brand.name}-themed equivalents where it makes the joke land: [list the
    specific swaps from context.md's object→domain mappings that fit THIS image].
-4. [OPTIONAL] Integrate the {brand.name} logo in one organic spot, only if it helps.
+4. [OPTIONAL] Integrate the {brand.name} logo in one organic spot, only if it helps — and ONLY
+   if the rewritten caption does NOT already say the brand name (never a logo + wordmark stacked
+   on top of an on-brand caption).
 
 CRITICAL — preserve the EXACT characters: same faces, ages, hair, body shapes, clothing, and art
 style. Do NOT swap any character for a different one. Keep the meme's format, composition, and
 framing. DO NOT change [list what must stay untouched].
-```
-
-### MASCOT_INSERT
-```
-I am giving you reference images. The first image is the scene to edit. The second image is the
-{brand.name} mascot, {mascot.name} — {mascot.description}.
-
-Insert the mascot from the second reference into the first scene. The mascot MUST keep its
-original art style as described — do not photo-realise it. Make it interact naturally with the
-scene (sitting, standing next to a character, peeking from a corner, holding something,
-photo-bombing). Match its lighting and shadow to the scene without changing its color palette.
-
-Keep the rest of the scene intact — characters, objects, background, composition unchanged.
 ```
 
 ### CHARACTER_REPLACE
@@ -388,11 +383,11 @@ is missing, skip silently — don't fail the rebrand).
   scene-aware prompts far better.
 - **TEXT_REPLACE:** describe each letter's case and weight; brand names are usually
   capital-first, lowercase rest.
-- **MASCOT_INSERT:** explicitly say "keep the original art style" or it gets photo-realised.
 - **LOGO_ADD:** suggest 3–5 placements SPECIFIC to the scene; never lead with a corner watermark.
-- **CHARACTER_REPLACE:** the verbatim phrasing "Match the exact pose, body position, facial
-  expression, emotion, and camera angle" is load-bearing — don't paraphrase it away. Works
-  cleanest on a GPT-style reference path; Flow-style models may reinterpret the scene.
+- **CHARACTER_REPLACE:** explicitly say "keep the mascot's original art style" or it gets
+  photo-realised. The verbatim phrasing "Match the exact pose, body position, facial expression,
+  emotion, and camera angle" is load-bearing — don't paraphrase it away. Works cleanest on a
+  GPT-style reference path; Flow-style models may reinterpret the scene.
 - **Always end with "DO NOT change …"** listing what must stay (characters, background,
   composition, lighting).
 - If a result is weak, retry with a more specific placement instruction.

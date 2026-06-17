@@ -37,7 +37,7 @@ Fill in:
   colors, letters). The model reads both the words and the picture.
 - `mascot:` — the template ships this block **commented out**. Uncomment and fill it in if you
   have a mascot, or leave it commented / delete it if you don't. With no mascot, the agent uses
-  only LOGO_ADD and TEXT_REPLACE (mascot modes auto-disable).
+  LOGO_ADD, TEXT_REPLACE and MEME_REMIX (mascot-based modes auto-disable).
 - `output_prefix` — prefix for saved filenames.
 
 ## 4. (Optional) Write `brands/mybrand/context.md`
@@ -67,8 +67,9 @@ provenance stripping now run with your logo, your name, and (optionally) your ma
 ## What a brand without a mascot looks like
 
 Plenty of brands have only a logo. That's fully supported: delete the `mascot:` block in
-`brand.yaml`, and rebrandit will only ever do **LOGO_ADD** (native logo integration) and
-**TEXT_REPLACE** (swap meme text for your brand name). No mascot cameos, no character swaps.
+`brand.yaml`, and rebrandit will do **LOGO_ADD** (native logo integration), **TEXT_REPLACE**
+(swap meme text for your brand name), and **MEME_REMIX** (creative meme remix, if you give it
+humor context). The mascot-only modes — CHARACTER_REPLACE and FULL_BRAND — auto-disable.
 
 ## Picking an image backend
 

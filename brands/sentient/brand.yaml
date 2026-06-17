@@ -24,8 +24,8 @@ logo:
 
 # Mascot (OPTIONAL).
 # Delete this entire block if your brand has no mascot. When absent, the agent
-# automatically disables the MASCOT_INSERT, CHARACTER_REPLACE and FULL_BRAND modes
-# and only uses LOGO_ADD + TEXT_REPLACE.
+# automatically disables the CHARACTER_REPLACE and FULL_BRAND modes
+# and uses LOGO_ADD, TEXT_REPLACE + MEME_REMIX.
 mascot:
   name: Dobby
   file: assets/mascot.png
