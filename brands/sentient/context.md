@@ -47,3 +47,29 @@ Memes celebrating closed-source AI · anti-open-source narratives · AI-doomer /
 "AGI is too dangerous, lock it down" framing · mocking decentralization · anti-crypto framing.
 The rebrand will *technically* work, but the message contradicts the brand — surface it to
 the user first instead of silently generating.
+
+## Meme remix (humor angles + object swaps)
+
+For **MEME_REMIX** mode — turning a generic meme into a native, funny Sentient meme rather than a
+logo slap. Pick the angle that fits the meme's format; keep it playful and irreverent, never corporate.
+
+**Humor angles that land:**
+- **Open vs closed AI (David vs Goliath)** — closed labs (OpenAI / Anthropic / Google) as the
+  greedy, walled-garden gatekeepers; Sentient as the scrappy open side that frees the AGI.
+- **AGI actually waking up** — "becoming sentient" / true reasoning, played straight or absurd.
+- **Dobby, the loyal one** — the open model/dog "loyal to the community / to crypto", vs corporate
+  models that serve only their owner.
+- **Network beats monolith** — GRID as a swarm of 110+ specialist agents vs one giant black box.
+- **Community-owned / $SENT** — stake on the artifacts you believe in; open-source finally gets paid.
+- **Decentralization wins** — the Linux / Android "open ate the world" inevitability.
+
+**Object → Sentient-domain swaps (use when it makes the joke land):**
+- a generic / closed-AI chatbot or mascot → **Dobby** (the kawaii dog) or the Sentient logo
+- one giant robot / brain / monolith → **a swarm of small agents** (GRID)
+- a locked vault / cage / walled garden → **an open door / broken chains / open gate**
+- a corporate or OpenAI logo on something → **the Sentient logo**
+- money / coins / a price tag → **$SENT**
+- a lone closed lab / gatekeeper → **a community building in the open**
+
+**Tone:** playful, irreverent, pro-open-source, crypto-native, anti-monopoly. Punch up at closed
+labs, never at the open-source community. Funny first, branded second.

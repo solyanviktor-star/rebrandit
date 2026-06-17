@@ -60,9 +60,12 @@ Step 4 of the workflow changes.
 
 ## 2. Modes — pick by scene, NEVER default to FULL_BRAND
 
-**One brand signal almost always beats two.** If the image reads as the brand through the
-mascot, the logo is redundant. If through the logo, the mascot is redundant. FULL_BRAND is
-the EXCEPTION, not the default.
+rebrandit works at two depths. **Integrate** (modes A–E): keep the scene, just add the brand —
+here *one brand signal almost always beats two* (if the image reads as the brand through the
+mascot, the logo is redundant, and vice versa; FULL_BRAND is the EXCEPTION, not the default).
+**Remix** (mode F, MEME_REMIX): reinterpret a meme into a witty joke aimed at the brand's domain
+— used when the input is a meme whose humor can be re-pointed at the brand AND the brand pack
+carries the domain context (`context.md`) to make it land.
 
 | Mode | What it does | Needs mascot? |
 |---|---|---|
@@ -71,6 +74,7 @@ the EXCEPTION, not the default.
 | **MASCOT_INSERT** | Insert the mascot as a character cameoing in the scene. | yes |
 | **CHARACTER_REPLACE** | Swap the scene's central character *for* the mascot. | yes |
 | **FULL_BRAND** | Mascot **and** logo together. Rare. | yes |
+| **MEME_REMIX** | Reinterpret the meme as a witty, on-brand-domain joke — rewrite captions, swap objects for brand-themed equivalents. | no |
 
 ### Mode A — LOGO_ADD (logo only, NATIVELY integrated)
 
@@ -127,10 +131,36 @@ is so busy the mascot alone wouldn't register as the brand; OR it's a heavy-prom
 over-branding is acceptable. The logo must STILL use native integration (Mode A rules) — never
 a lazy watermark.
 
+### Mode F — MEME_REMIX (creative; reinterpret the meme for the brand)
+
+The integration modes (A–E) preserve the scene and just add the brand. MEME_REMIX is different:
+it re-points the meme's humor at the brand's domain so the result reads as a native, funny
+{brand.name} meme — the kind people would actually share.
+
+Use it when the input is a meme whose joke can be cleverly adapted: a caption that could be
+rewritten to a brand-domain punchline, objects that could become brand-themed equivalents, a
+list / comparison / hierarchy that could be re-themed. It **requires** the brand's `context.md`
+domain knowledge (humor angles + object→domain mappings); without that context, fall back to
+TEXT_REPLACE / LOGO_ADD.
+
+Rules:
+- **Rewrite captions to a witty, on-domain joke** — not just the literal brand name. Ask "what
+  would make this go viral for {brand.name}?" Funny first, branded second.
+- **Swap objects/icons for brand-themed equivalents** where it makes the joke land (use the
+  mappings in `context.md`).
+- **Preserve the meme format and the EXACT characters** — same faces, ages, hair, body shapes,
+  clothing, art style. Do NOT swap one character for another (that's CHARACTER_REPLACE).
+- Add the logo in one organic spot only if it helps; the rewritten joke usually carries the brand.
+- Stay on-brand: if `context.md` flags the meme's message as off-brand, surface it first.
+
 ---
 
 ## 3. Mode selection (decision tree, apply in order)
 
+0. **Is the input a meme whose humor could be cleverly re-aimed at {brand.name}'s domain**
+   (caption rewritable to a brand-domain punchline, objects swappable for brand-themed ones),
+   AND does the brand pack have `context.md` domain knowledge? → **MEME_REMIX** (the creative
+   path). If not — or the brand has no domain context — use the integration steps below.
 1. **One central character "doing the thing"** (viral meme format) and swapping it for the
    mascot would BE the joke, and the brand has a mascot → **CHARACTER_REPLACE**.
 2. **Prominent text** (caption, sign, label, UI element) → **TEXT_REPLACE**. Logo only if it
@@ -191,6 +221,7 @@ match how the prompt refers to them:
 | MASCOT_INSERT | `[input, mascot.file_small or mascot.file]` |
 | CHARACTER_REPLACE | `[input, mascot.file_small or mascot.file]` |
 | FULL_BRAND | `[input, logo.file, mascot.file_small or mascot.file]` |
+| MEME_REMIX | `[input, logo.file]` *(logo optional — the rewritten joke usually carries the brand)* |
 
 Prefer the mascot's `file_small` when payload size matters.
 
@@ -245,6 +276,29 @@ host the logo glyph. Otherwise drop this paragraph: default = no separate logo.]
 
 DO NOT change anything else — characters, objects, background, lighting, and composition must
 stay exactly as in the original.
+```
+
+### MEME_REMIX
+```
+I am giving you reference images. The first image is a meme to rebrand for {brand.name}
+({brand.name} = [one-line brand description from context.md]). The second image (if provided)
+is the {brand.name} logo.
+
+Reinterpret this meme so it becomes a witty, native {brand.name} meme — funny first, branded
+second. Do the following:
+
+1. (Internally) note what the meme currently shows — characters, text, objects, style — so the
+   edit stays precise.
+2. REWRITE the text to a clever punchline about {brand.name}'s domain: [insert the on-domain joke
+   angle you chose, drawn from context.md]. Keep each text block's font, weight, position, and
+   effects — only the words change.
+3. SWAP objects/icons for {brand.name}-themed equivalents where it makes the joke land: [list the
+   specific swaps from context.md's object→domain mappings that fit THIS image].
+4. [OPTIONAL] Integrate the {brand.name} logo in one organic spot, only if it helps.
+
+CRITICAL — preserve the EXACT characters: same faces, ages, hair, body shapes, clothing, and art
+style. Do NOT swap any character for a different one. Keep the meme's format, composition, and
+framing. DO NOT change [list what must stay untouched].
 ```
 
 ### MASCOT_INSERT

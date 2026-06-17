@@ -47,6 +47,11 @@ off-brand meme, and which text variant to use — fill in `context.md` and **unc
 `context_file: context.md` line in `brand.yaml` (it ships commented out). If you don't need it,
 delete the file and leave that line commented.
 
+Fill in the **Meme remix** section (humor angles + object→domain swaps) if you want the agent to
+do *creative meme remixes* for your brand — rewriting captions to brand-domain jokes and swapping
+objects for brand-themed equivalents (the **MEME_REMIX** mode), not just integrating the logo.
+Without it, the agent stays conservative (LOGO_ADD / TEXT_REPLACE only).
+
 ## 5. Run with your brand
 
 Tell the agent to use your brand, or set the env var:

@@ -29,3 +29,15 @@ List the topics/vibes where stamping your brand on a meme actually makes sense.
 
 List the topics where the rebrand would technically work but contradict your brand — the
 agent will surface these to the user instead of silently generating.
+
+## Meme remix (humor angles + object swaps)
+
+Fill this in to enable **MEME_REMIX** — turning a generic meme into a native, funny meme for your
+brand, not just a logo slap. Without this section the agent stays conservative (LOGO_ADD / TEXT_REPLACE).
+
+**Humor angles that land:** list 3–6 joke angles / recurring themes your audience finds funny and on-message.
+
+**Object → your-domain swaps:** mappings the agent can use to re-theme a meme — e.g.
+"a generic robot → your mascot", "money / coins → $TICKER", "a rival's logo → your logo".
+
+**Tone:** the voice (playful / technical / irreverent / …) and who you punch up at vs never.

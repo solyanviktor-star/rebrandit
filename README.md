@@ -73,9 +73,10 @@ just say it once in chat. Full guide: [`docs/image-backends.md`](docs/image-back
 
 > 🔒 Never commit keys or wallet private keys. `.env`, `*.key`, and wallet files are git-ignored.
 
-## The five modes
+## The modes
 
-The agent picks one by scene — **one brand signal almost always beats two**:
+The agent works at two depths. **Integrate** — keep the scene, just add the brand (one brand
+signal almost always beats two):
 
 - **LOGO_ADD** — logo woven natively into the scene (never a corner watermark).
 - **TEXT_REPLACE** — swap meme text for the brand name, keeping the exact font/style.
@@ -83,7 +84,13 @@ The agent picks one by scene — **one brand signal almost always beats two**:
 - **CHARACTER_REPLACE** — the mascot takes over the central character's role *(requires a mascot)*.
 - **FULL_BRAND** — mascot + logo together (rare).
 
-A brand with no mascot just uses LOGO_ADD and TEXT_REPLACE — mascot modes auto-disable.
+**Remix** — reinterpret the meme into a witty, on-brand joke:
+
+- **MEME_REMIX** — rewrite the caption to a brand-domain punchline and swap objects for
+  brand-themed equivalents, keeping the format and characters. Needs the brand's `context.md`
+  humor/domain notes (the CineMeta example above is a MEME_REMIX). Funny first, branded second.
+
+A brand with no mascot just uses LOGO_ADD, TEXT_REPLACE and MEME_REMIX — mascot modes auto-disable.
 
 ## Make it your own brand
 
