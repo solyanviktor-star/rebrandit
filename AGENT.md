@@ -214,8 +214,10 @@ defaulting to FULL_BRAND out of laziness?"* If the latter — drop one.
 - Image attached in chat → look at it first to confirm what's in it.
 
 ### Step 2 — Analyze + pick a mode
-Apply the decision tree in §3. If `context.md` flags the scene as **off-brand**, surface that
-to the user before generating rather than silently producing it.
+Apply the decision tree in §3, and decide the mode and text variant **on your own judgment** —
+don't ask the user to choose; only pause if the scene is genuinely ambiguous. If `context.md`
+flags the scene as **off-brand**, surface that to the user before generating rather than silently
+producing it.
 
 ### Step 3 — Build the prompt + reference list
 Use the matching template in §5, substituting the brand values. The reference-image order MUST
@@ -234,6 +236,11 @@ Prefer the mascot's `file_small` when payload size matters.
 ### Step 4 — Generate
 Call the backend resolved in §1 with the prompt + ordered references. (Native host tool, or the
 configured external provider — the call differs but nothing else does.)
+
+**Optional — compare models.** When the backend exposes several image models (e.g. degenai's
+`nano-banana` / `gpt-image-2` / `pro`, or a native host you can re-run), generate the SAME prompt
+and references across 2–3 of them and show all results for the user to pick. Different models nail
+different things — clean logo placement vs. in-image typography vs. character swaps.
 
 ### Step 5 — Strip AI provenance
 Run `strip_ai_provenance()` on the saved file (§6). **Mandatory, every time.**

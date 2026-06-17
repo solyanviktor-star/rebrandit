@@ -54,6 +54,9 @@ degenai generate -p "<prompt>" -i input.png -o output.png
   so check `degenai generate --help` for how your CLI version passes more than one reference
   (and whether the chosen model accepts multiple). The `gpt-image-2` model (`-m gpt-image-2`)
   is the strongest pick for reference-driven edits and in-image typography.
+- **Compare models:** run the same prompt + references across `-m nano-banana`, `-m gpt-image-2`
+  and `-m pro`, then pick the best — each excels at different things (clean logo vs. typography vs.
+  character swap).
 - Live pricing: `degenai pricing` (source: `https://aibasegen.vercel.app/api/x402/pricing`).
 
 **Pricing (indicative)**
